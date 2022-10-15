@@ -1,0 +1,153 @@
+/* step 1: style logo with a grow animation */
+@keyframes logoAnimate {
+    0%   {width: 25px; opacity: 0;}
+    100% {width: 475px; opacity: 1;}
+  }
+
+#logo {
+    animation-name: logoAnimate;
+    width: 475px;
+    animation-duration: 5s;
+}
+
+/* step 2: edit body element */
+body {
+    font-family: Poppins, serif;
+    background-color: #f1f1f1;
+    background: url(../images/concrete_seamless.png);
+}
+
+/* step 3: edit css for the header tag (all instances) w/ flex to match example */
+header {
+	flex-direction: column;
+	align-items: center;
+    display: flex;
+}
+
+/* step 4: edit the css for the nav_links class using nav_links class to use flex. */
+.nav_links {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+/* step 5: CHALLENGE: */
+.nav_item, a:visited {
+    color: blue;
+}
+
+/* step 6: card selectors: */
+
+/* selects ONLY header elements that are children of .card class*/
+.card > header {
+    background: #288088;
+    border: 2px solid #45ADAD;
+    border-radius: 50px 50px 0px 0px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+/* steps 7&8:  */
+
+/* step 7: -- using flex-basis property so it can be used on the flex items -- */
+.card {
+    border-radius: 50px 50px 0px 0px;
+    display: flex;
+    flex-basis: 450px;
+    flex-direction: column;
+}
+
+/* step 8: edit pricing class to ensure flex cards are vert/horiz centered */
+.pricing {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+/* step 9: style images in gallery class */
+.gallery img {
+    border: solid 10px #50C7C7;
+    margin: 10px 10px 10px 10px;
+    width: 300px;
+}
+
+/* step 10: style gallery class using flex */
+.gallery {
+    justify-content: center;
+    flex-wrap: wrap;
+    display: flex;
+}
+
+/* screen size 900px >: */
+ @media screen and (min-width: 900px) {
+
+    /* step 11: edit header and nav_links to have same flex as ex */
+	header {
+        display: flex;
+		flex-direction: row;
+	}
+    /* step 12: edit the css for the pricing and card classes to match ex */
+    .pricing, .card {
+		flex-basis: 275px;
+	}
+
+    /* step 13: challenge -- added stick position to keep still while scrolling --  */
+	body > header {
+		top: 0px;
+        position: sticky;
+	}
+
+ }
+ 
+/* step 14: enable user to turn off reduced motion  */
+    @media screen and (prefers-reduced-motion: reduce) {
+
+    header img {
+        animation: none;
+    }
+
+}
+
+/* step 15: media query for print page view  */
+@media print {
+    /* step 15/16 */
+    body {
+        font-family: Arial, Helvetica;
+        background: none;
+    }
+
+	/* step 17: match nav/nav_links */
+	nav {
+		width: 100%;
+	}
+    .nav_links {
+        justify-content: space-around;
+        flex-direction: row;
+    }
+
+    /* step 18: edit pricing class */
+    .pricing {
+        display: flex;
+        flex-wrap: nowrap;
+        align-items: flex-end;
+    }
+
+    /* step 19: edit card elements */
+    .card {
+        border: solid 2px #45ADDD;
+        flex-basis: 325xpx;
+    }
+
+    /* step 20: hide ALL instances of gallery  */
+    .gallery, #gallery {
+        display: none;
+    }
+
+    /* step 21: challenge: add thumgs up */
+    .card li:nth-child(2)::after {
+        content: "\01F44D";
+    }
+
+}
+
